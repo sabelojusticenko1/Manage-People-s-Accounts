@@ -1,0 +1,54 @@
+﻿@page
+@model LoginModel
+        <div class="col-6">
+            <h2 class="text-info">Login</h2>
+        </div>
+        <div class="row" style="position: center;">
+            <div class="col-md-4">
+                <section>
+                    <form id="account" method="post">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="Input.Email"></label>
+                            <input asp-for="Input.Email" class="form-control" />
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Input.Password"></label>
+                            <input asp-for="Input.Password" id="myInput" class="form-control" />
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="checkbox">
+                                    <label asp-for="Input.ShowPassword">
+                                        <input asp-for="Input.ShowPassword" onclick="myFunction()" />
+                                        @Html.DisplayNameFor(m => m.Input.ShowPassword)
+                                    </label>
+                                </div>
+                            </div>
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Log in</button>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <p>
+                                            <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+
+        @section Scripts {
+            <partial name="_ValidationScriptsPartial" />
+        }

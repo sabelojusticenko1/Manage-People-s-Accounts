@@ -1,0 +1,79 @@
+﻿@model IEnumerable<ManagePeople.Models.Accounts>
+@using ManagePeople.Models.StatusEnums
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">Manage Accounts</h2>
+    </div>
+    <br />
+    <table class="table table-striped border">
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(model => model.AccountNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountHolder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.IdPersonNoNavigation)
+                </th>*@
+            <th class="text-end">
+                Accounts
+            </th>
+            <th class="text-end">
+                Action
+            </th>
+        </tr>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AccountNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AccountHolder)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AccountName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.IdPersonNoNavigation.IdPerson)
+                        </td>*@
+                    <td class="text-end">
+                        <div class="btn-group" role="group">
+                            <a type="button" class="btn btn-primary" asp-controller="Transations" asp-action="Index" asp-route-id="@item.IdAccount">Transations</a>
+                        </div>
+                    </td>
+
+                    <td class="text-end">
+                        <div class="btn-group" role="group">
+                            <a type="button" class="btn btn-primary" asp-action="Edit" asp-route-id="@item.IdAccount">Edit</a>
+                            <a type="button" class="btn btn-primary" asp-action="Details" asp-route-id="@item.IdAccount">Details</a>
+                            @*<a type="button" class="btn btn-primary" asp-action="Delete" asp-route-id="@item.IdPerson">Delete</a>*@
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="col-6">
+        <a class="btn btn-info" asp-action="Create">Add Accounts</a>
+    </div>
+</div>

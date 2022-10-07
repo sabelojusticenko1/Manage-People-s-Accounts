@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ManagePeople.Models.Transations>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">Manage Transations</h2>
+    </div>
+    <br />
+    <table class="table table-striped border">
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(model => model.TransationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountHolder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransationDetails)
+            </th>
+            <th class="text-end">
+                Action
+            </th>
+        </tr>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TransationDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AccountHolder)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TransationDetails)
+                    </td>
+                    <td class="text-end">
+                        <div class="btn-group" role="group">
+                            <a type="button" class="btn btn-primary" asp-action="Edit" asp-route-id="@item.TransationId">Edit</a>
+                            <a type="button" class="btn btn-primary" asp-action="Details" asp-route-id="@item.TransationId">Details</a>
+                            @*<a type="button" class="btn btn-primary" asp-action="Delete" asp-route-id="@item.IdPerson">Delete</a>*@
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="col-6">
+        <a class="btn btn-info" asp-action="Create">Add transaction</a>
+    </div>
+</div>

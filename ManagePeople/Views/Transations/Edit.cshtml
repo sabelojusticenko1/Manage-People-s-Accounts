@@ -1,0 +1,41 @@
+﻿@model ManagePeople.Models.Transations
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-6">
+    <h2 class="text-info">Edit Information</h2>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TransationId" />
+            <div class="form-group">
+                <label asp-for="TransationDate" class="control-label"></label>
+                <input asp-for="TransationDate" class="form-control" />
+                <span asp-validation-for="TransationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountHolder" class="control-label"></label>
+                <input asp-for="AccountHolder" class="form-control" />
+                <span asp-validation-for="AccountHolder" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TransationDetails" class="control-label"></label>
+                <input asp-for="TransationDetails" class="form-control" />
+                <span asp-validation-for="TransationDetails" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,38 @@
+﻿@model ManagePeople.Models.Transations
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <div class="col-6">
+        <h2 class="text-info">Transation Details</h2>
+    </div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransationDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransationDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AccountHolder)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AccountHolder)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TransationDetails)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransationDetails)
+        </dd>
+    </dl>
+</div>
+<div>
+    <div class="btn-group" role="group">
+        <a type="button" class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.TransationId">Edit</a>
+    </div>
+</div>
